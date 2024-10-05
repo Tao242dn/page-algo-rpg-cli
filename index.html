@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo RPG CLI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0F0F0F;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(109, 59, 247, 0.2) 0%, rgba(226, 54, 143, 0.2) 100%);
+            border-radius: 20px;
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-shadow: 0 0 10px rgba(109, 59, 247, 0.5);
+        }
+
+        .subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            color: #E0E0E0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #6D3BF7;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(109, 59, 247, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #5A2FD6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(109, 59, 247, 0.4);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 100px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            text-align: center;
+            max-width: 300px;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(109, 59, 247, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .feature i {
+            font-size: 48px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+
+        .feature h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #CCD5E1;
+        }
+
+        .feature p {
+            color: #A0A0A0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #9e9acf, #E2368F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .code-block-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            max-width: 100%;
+        }
+
+        .code-block {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50px;
+            padding: 12px 16px;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: calc(100% - 50px);
+            display: flex; /* Crucial: Add display: flex to .code-block */
+            align-items: center; /* Vertically align items */
+        }
+
+        .code-block code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #E0E0E0;
+            font-size: 18px;
+            white-space: nowrap;
+            flex: 1;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 12px;
+            margin-right: 8px;
+            transition: all 0.3s;
+            align-items: center;
+            border-radius: 0 8px 8px 0;
+            width: 25px;
+            height: 100%;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .copy-btn:hover {
+            color: #A0A0A0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 48px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .code-block-wrapper {
+                display: flex; /* Ensure flexbox layout */
+                justify-items: center; /* Center items vertically */
+                align-items: center; /* Center items horizontally */
+
+                margin-bottom: 20px;
+                overflow-x: auto; /* Enable horizontal scrolling */
+            }
+
+            .code-block {
+
+
+                padding: 12px 16px;
+                border-radius: 8px;  /* Rounded corners on all sides */
+                display: flex; /* To align the button and code */
+                align-items: center;
+            }
+
+            .code-block code {
+                font-family: 'Courier New', Courier, monospace;
+
+                font-size: 14px; /* Reduced font size */
+
+                white-space: pre-wrap; /* Preserve line breaks */
+
+            }
+
+            .copy-btn {
+
+                border-radius: 0 8px 8px 0;
+                padding: 12px 16px;
+
+            }
+        }
+
+        @media (max-width: 480px) {
+            .code-block-wrapper {
+                flex-direction: column;  /* Stack vertically on smaller screens */
+                align-items: stretch;  /* Stretch to fill width */
+            }
+
+            .code-block {
+                border-radius: 8px 8px 0 0;
+
+                flex-direction: column; /* Stack code and button */
+
+            }
+
+            .code-block code {
+                font-size: 12px;
+                margin-right: 0; /* Remove margin on small screens */
+                margin-bottom: 10px; /* Add bottom margin for spacing */
+            }
+
+            .copy-btn {
+               align-self: stretch; /* Stretch to fill width */
+               width: 100%; /* Make button full width */
+               border-radius: 0 0 8px 8px;
+               padding: 10px;
+            }
+        }
+
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        #typing-subtitle::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+        
+        #typing-subtitle.typing-complete::after {
+            content: none;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="hero">
+            <h1><b>Algo RPG CLI</b></h1>
+            <p id="typing-subtitle" class="subtitle"></p>
+            <div class="code-block-wrapper rounded text-center">
+                <div class="code-block d-flex align-items-center justify-content-center p-3 mx-auto rounded-30px">
+                    <code class="flex-grow-1 me-3 user-select-all"><b>git clone https://github.com/Tao242dn/algo-rpg-cli.git</b></code>
+                    <button class="btn copy-btn rounded-end" onclick="copyToClipboard()">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            <br>
+            <a href="https://github.com/Tao242dn/algo-rpg-cli" target="_blank" class="cta-button">Read the docs</a>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h2><b>Code Review</b></h2>
+                <p>Automatically analyze and review your code for quality, offering actionable suggestions that enhance performance and maintainability.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-project-diagram"></i>
+                <h2><b>Project Planning</b></h2>
+                <p>Easily create comprehensive project plans that set you up for success from the start. Our platform provides the structure you need for clear, achievable milestones.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-brain"></i>
+                <h2><b>Algo Explain</b></h2>
+                <p>Break down complex blockchain concepts with ease. Our AI simplifies the technical jargon, helping you grasp key ideas without frustration.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Add animation to features on scroll
+        const features = document.querySelectorAll('.feature');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        features.forEach(feature => {
+            feature.style.opacity = 0;
+            feature.style.transform = 'translateY(20px)';
+            observer.observe(feature);
+        });
+
+        function copyToClipboard() {
+            const codeElement = document.querySelector('.code-block code');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            const copyBtn = document.querySelector('.copy-btn');
+            copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+            }, 2000);
+        }
+
+        const subtitleText = "Powered by our cutting-edge Gemini 1.5 Pro AI. Dive into a world where understanding Algorand blockchain is made simple, engaging, and intuitive.";
+        const typingSubtitle = document.getElementById('typing-subtitle');
+        let index = 0;
+
+        function typeSubtitle() {
+            if (index < subtitleText.length) {
+                if (subtitleText.substring(index, index + 9) === "Algorand ") {
+                    typingSubtitle.innerHTML += '<b class="gradient-text">Algorand </b>';
+                    index += 9;
+                } else if (subtitleText.substring(index, index + 14) === "Gemini 1.5 Pro") {
+                    typingSubtitle.innerHTML += '<b class="gradient-text">Gemini 1.5 Pro</b>';
+                    index += 14;
+                } else {
+                    typingSubtitle.innerHTML += subtitleText.charAt(index);
+                    index++;
+                }
+                setTimeout(typeSubtitle, 100); // Adjust typing speed here (milliseconds)
+            } else {
+                typingSubtitle.classList.add('typing-complete');
+            }
+        }
+
+        // Start the typing animation when the page loads
+        window.onload = function() {
+            typeSubtitle();
+        };
+    </script>
+</body>
+</html>
